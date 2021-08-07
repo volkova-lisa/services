@@ -32,6 +32,6 @@ public class CountService extends Service {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
     }
 }
