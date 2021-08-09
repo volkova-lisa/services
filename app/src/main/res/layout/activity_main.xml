@@ -21,4 +21,11 @@
         android:layout_weight="1"
         android:text="Stop Service" />
 
+    <Button
+        android:id="@+id/button_broadcast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="send broadcast" />
+
 </LinearLayout>
