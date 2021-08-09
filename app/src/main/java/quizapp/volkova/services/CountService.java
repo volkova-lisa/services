@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
+import java.util.concurrent.Executors;
+
 public class CountService extends Service {
 
     public static final String TAG = CountService.class.getSimpleName();
@@ -21,6 +23,7 @@ public class CountService extends Service {
     @Override
     public void onCreate() {
         Log.d(TAG, "onCreate: ");
+        Executors.newScheduledThreadPool(1);
     }
 
     @Override
