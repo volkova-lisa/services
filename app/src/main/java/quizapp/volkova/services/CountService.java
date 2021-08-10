@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class CountService extends Service {
 
     public static final String TAG = CountService.class.getSimpleName();
+    public static final String TIME = "TIME";
     private ScheduledExecutorService scheduledExecutorService;
 
     public CountService() {
@@ -36,9 +37,13 @@ public class CountService extends Service {
         scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
+                long currentTimeMillis = System.currentTimeMillis();
                 Log.d(TAG,"run: " + System.currentTimeMillis());
+                Intent intentToSend = new Intent(SimpleReceiver.SIMPLE_ACTION);
+                intentToSend.putExtra(TIME, currentTimeMillis);
+                sendBroadcast(new Intent(SimpleReceiver.SIMPLE_ACTION));
             }
-        },  1000, 1000, TimeUnit.MILLISECONDS);
+        },  1000, 4000, TimeUnit.MILLISECONDS);
 
         Log.d(TAG, "onStartCommand: ");
         return START_STICKY;

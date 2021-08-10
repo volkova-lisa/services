@@ -11,6 +11,8 @@ public class SimpleReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        long time = intent.getLongExtra(CountService.TIME, 0L);
         Toast.makeText(context, intent.getAction(), Toast.LENGTH_SHORT).show();
     }
 }
